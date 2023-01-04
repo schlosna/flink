@@ -447,7 +447,7 @@ public class SqlFunctionUtils {
         }
 
         try {
-            Matcher m = Pattern.compile(regex).matcher(str);
+            Matcher m = REGEXP_PATTERN_CACHE.get(regex).matcher(str);
             if (m.find()) {
                 MatchResult mr = m.toMatchResult();
                 return mr.group(extractIndex);
